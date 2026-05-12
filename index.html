@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EG Select — Curadoria Premium em Beleza & Lifestyle</title>
+<meta name="description" content="EG Select — produtos selecionados a dedo. Curadoria diária no Instagram e Facebook." />
+<meta name="theme-color" content="#0a0a0a" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="EG Select — Curadoria Premium" />
+<meta property="og:description" content="Produtos selecionados a dedo. Curadoria diária." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://egselect.effectivegain.com" />
+
+<!-- Favicon (placeholder via emoji) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>" />
+
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-elev: #161616;
+    --text: #ffffff;
+    --text-muted: #a3a3a3;
+    --accent: #d4af37;
+    --accent-glow: rgba(212, 175, 55, 0.15);
+    --border: rgba(255, 255, 255, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse at top, var(--accent-glow), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(120, 80, 200, 0.08), transparent 50%),
+      var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+  }
+
+  main {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    padding: 48px 0;
+  }
+
+  .logo {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+  }
+
+  h1 {
+    font-size: clamp(40px, 9vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    background: linear-gradient(180deg, #ffffff 0%, #cccccc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tagline {
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 48px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 24px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .link:hover {
+    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .link svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .link .arrow {
+    margin-left: auto;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .link:hover .arrow {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .feature {
+    text-align: center;
+  }
+
+  .feature .icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .feature .label {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.3;
+  }
+
+  footer {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+  }
+
+  footer a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+  }
+
+  @media (max-width: 480px) {
+    main { padding: 24px 0; }
+    .features { gap: 8px; }
+    .feature .label { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <span class="logo">✨ EG Select</span>
+
+  <h1>Curadoria que faz<br/>você economizar tempo.</h1>
+
+  <p class="tagline">
+    Produtos selecionados a dedo. Beleza, lifestyle e achados premium — direto no seu feed.
+  </p>
+
+  <div class="links">
+    <a class="link" href="https://instagram.com/egselect" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+      <span>Instagram · @egselect</span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link" href="https://facebook.com/egselect" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+      <span>Facebook · EG Select</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="icon">🎯</div>
+      <div class="label">Curadoria<br/>diária</div>
+    </div>
+    <div class="feature">
+      <div class="icon">💎</div>
+      <div class="label">Produtos<br/>premium</div>
+    </div>
+    <div class="feature">
+      <div class="icon">✨</div>
+      <div class="label">Achados<br/>exclusivos</div>
+    </div>
+  </div>
+
+  <footer>
+    Uma marca <a href="https://effectivegain.com" target="_blank" rel="noopener">Effective Gain</a>
+  </footer>
+</main>
+
+</body>
+</html>
