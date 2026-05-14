@@ -1,0 +1,46 @@
+{
+  "updated_at": "2026-05-14T15:16:40.869825-03:00",
+  "count": 4,
+  "products": [
+    {
+      "id": "004",
+      "name": "Cafeteira Nespresso Essenza Mini — Café de verdade em casa",
+      "price": "464",
+      "cat": "CasaCozinha",
+      "link": "https://www.amazon.com.br/dp/B099ZJQXMF?tag=egselect-20",
+      "img": "https://mkteg-s3.s3.sa-east-1.amazonaws.com/mkteg/d2765da9-952b-4f3a-af91-c7610ff4354b/f3537259-2343-468e-8c92-ac62e79067c2.png",
+      "img_fallback": "https://m.media-amazon.com/images/I/51QP72LhToL._AC_SL1000_.jpg",
+      "posted_at": "2026-05-14T15:16:40.869825-03:00"
+    },
+    {
+      "id": "003",
+      "name": "JBL Tune 530BT — Fone Bluetooth Sem Fio On-Ear",
+      "price": "219",
+      "cat": "Eletronicos",
+      "link": "https://www.amazon.com.br/dp/B0GM1LSHQF?tag=egselect-20",
+      "img": "https://mkteg-s3.s3.sa-east-1.amazonaws.com/mkteg/d2765da9-952b-4f3a-af91-c7610ff4354b/aff7a222-a80c-49a0-8aab-b3545055da50.png",
+      "img_fallback": "https://m.media-amazon.com/images/I/51DjNtcgerL._AC_SL1500_.jpg",
+      "posted_at": "2026-05-14T15:07:08.784876-03:00"
+    },
+    {
+      "id": "002",
+      "name": "Kindle 16GB — Tela antirreflexo, leve e sem cansar os olhos",
+      "price": "649",
+      "cat": "Eletronicos",
+      "link": "https://www.amazon.com.br/dp/B0CP31L73X?tag=egselect-20",
+      "img": "https://m.media-amazon.com/images/I/81Z2YCqqy-L._AC_SL1500_.jpg",
+      "img_fallback": "https://m.media-amazon.com/images/I/81Z2YCqqy-L._AC_SL1500_.jpg",
+      "posted_at": "2026-05-14T13:44:05.718196-03:00"
+    },
+    {
+      "id": "001",
+      "name": "Amazon Echo Dot — Smart Speaker com Alexa",
+      "price": "279",
+      "cat": "Eletronicos",
+      "link": "https://www.amazon.com.br/dp/B09B8XVSDP?tag=egselect-20",
+      "img": "https://m.media-amazon.com/images/I/61aCuWauwBL._AC_SL1000_.jpg",
+      "img_fallback": "https://m.media-amazon.com/images/I/61aCuWauwBL._AC_SL1000_.jpg",
+      "posted_at": "2026-05-14T13:42:20.552471-03:00"
+    }
+  ]
+}
