@@ -3,236 +3,419 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EG Select — Curadoria Premium em Beleza & Lifestyle</title>
-<meta name="description" content="EG Select — produtos selecionados a dedo. Curadoria diária no Instagram e Facebook." />
+<title>EG Select — Produtos que valem cada centavo</title>
+<meta name="description" content="Curadoria diária de produtos premium com os melhores preços da Amazon. Eletrônicos, beleza, casa e muito mais." />
 <meta name="theme-color" content="#0a0a0a" />
-
-<!-- Open Graph -->
-<meta property="og:title" content="EG Select — Curadoria Premium" />
-<meta property="og:description" content="Produtos selecionados a dedo. Curadoria diária." />
+<meta property="og:title" content="EG Select — Produtos que valem cada centavo" />
+<meta property="og:description" content="Curadoria diária de produtos premium. Direto no feed, link na bio." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://egselect.effectivegain.com" />
-
-<!-- Favicon (placeholder via emoji) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>" />
 
 <style>
-  :root {
-    --bg: #0a0a0a;
-    --bg-elev: #161616;
-    --text: #ffffff;
-    --text-muted: #a3a3a3;
-    --accent: #d4af37;
-    --accent-glow: rgba(212, 175, 55, 0.15);
-    --border: rgba(255, 255, 255, 0.08);
-  }
+/* ── Reset & Tokens ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:         #0a0a0a;
+  --bg-card:    #141414;
+  --bg-pill:    #1e1e1e;
+  --border:     rgba(255,255,255,0.07);
+  --border-h:   rgba(212,175,55,0.35);
+  --text:       #f0f0f0;
+  --text-muted: #888;
+  --text-dim:   #555;
+  --gold:       #d4af37;
+  --gold-light: #f0c040;
+  --gold-dim:   rgba(212,175,55,0.12);
+  --radius:     14px;
+  --radius-sm:  8px;
+  --transition: .18s ease;
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
 
-  html, body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
 
-  body {
-    background:
-      radial-gradient(ellipse at top, var(--accent-glow), transparent 50%),
-      radial-gradient(ellipse at bottom right, rgba(120, 80, 200, 0.08), transparent 50%),
-      var(--bg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 24px;
-  }
+/* ── Header ─────────────────────────────────────────────────── */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(10,10,10,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.logo { display: flex; align-items: center; gap: 6px; font-size: 1.15rem; font-weight: 800; letter-spacing: -.3px; }
+.logo span { color: var(--gold); }
+.logo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+.header-ig {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 30px;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  font-size: .8rem; font-weight: 700; color: #fff;
+  transition: opacity var(--transition);
+}
+.header-ig:hover { opacity: .85; }
+.header-ig svg { width: 15px; height: 15px; }
 
-  main {
-    max-width: 480px;
-    width: 100%;
-    text-align: center;
-    padding: 48px 0;
-  }
+/* ── Hero ────────────────────────────────────────────────────── */
+.hero {
+  padding: 52px 20px 36px;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 13px; border-radius: 30px;
+  background: var(--gold-dim); border: 1px solid rgba(212,175,55,.25);
+  font-size: .7rem; font-weight: 700; color: var(--gold);
+  letter-spacing: .6px; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 6vw, 2.7rem);
+  font-weight: 800; line-height: 1.13; letter-spacing: -.5px;
+  margin-bottom: 14px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p { color: var(--text-muted); font-size: .95rem; max-width: 420px; margin: 0 auto 28px; }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 30px;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff; font-weight: 700; font-size: .95rem;
+  box-shadow: 0 6px 24px rgba(253,29,29,.25);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(253,29,29,.38); }
+.hero-cta svg { width: 18px; height: 18px; }
 
-  .logo {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 24px;
-    display: inline-block;
-    padding: 8px 16px;
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-  }
+/* ── Stats ───────────────────────────────────────────────────── */
+.stats {
+  display: flex; margin: 0 20px 36px;
+  border-radius: var(--radius);
+  background: var(--bg-card); border: 1px solid var(--border); overflow: hidden;
+}
+.stat { flex: 1; padding: 16px 12px; text-align: center; border-right: 1px solid var(--border); }
+.stat:last-child { border-right: none; }
+.stat-n { font-size: 1.3rem; font-weight: 800; color: var(--gold); display: block; }
+.stat-l { font-size: .68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; }
 
-  h1 {
-    font-size: clamp(40px, 9vw, 64px);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-    background: linear-gradient(180deg, #ffffff 0%, #cccccc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+/* ── Section head ────────────────────────────────────────────── */
+.section-head { padding: 0 20px; margin-bottom: 16px; }
+.section-head h2 { font-size: 1.25rem; font-weight: 800; letter-spacing: -.3px; }
+.section-head h2 span { color: var(--gold); }
+.section-head p { font-size: .8rem; color: var(--text-muted); margin-top: 3px; }
 
-  .tagline {
-    font-size: 18px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: 48px;
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+/* ── Filter ──────────────────────────────────────────────────── */
+.filter-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  padding: 0 20px 16px;
+}
+.filter-wrap::-webkit-scrollbar { display: none; }
+.filter { display: flex; gap: 8px; width: max-content; }
+.filter-btn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 8px 16px; border-radius: 30px;
+  background: var(--bg-pill); border: 1px solid var(--border);
+  color: var(--text-muted); font-size: .8rem; font-weight: 600;
+  transition: all var(--transition); white-space: nowrap;
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--text); }
+.filter-btn.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
 
-  .links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 48px;
-  }
+/* ── Products grid ───────────────────────────────────────────── */
+.products { padding: 0 12px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 8px; }
+@media (min-width: 540px)  { .products { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 820px)  { .products { grid-template-columns: repeat(4, 1fr); padding: 0 20px; gap: 14px; } }
+@media (min-width: 1100px) { .products { grid-template-columns: repeat(5, 1fr); } }
 
-  .link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 18px 24px;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    cursor: pointer;
-  }
+/* ── Card ────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.card:hover { border-color: var(--border-h); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.5); }
+.card-img { position: relative; aspect-ratio: 1/1; background: #181818; overflow: hidden; }
+.card-img img { width: 100%; height: 100%; object-fit: contain; padding: 12px; transition: transform .3s; }
+.card:hover .card-img img { transform: scale(1.06); }
+.card-badge {
+  position: absolute; top: 8px; left: 8px;
+  padding: 3px 8px; border-radius: 6px;
+  font-size: .62rem; font-weight: 700; letter-spacing: .3px; text-transform: uppercase;
+}
+.badge-Eletronicos  { background: rgba(59,130,246,.2);  color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
+.badge-Beleza       { background: rgba(236,72,153,.18); color: #f472b6; border: 1px solid rgba(236,72,153,.3); }
+.badge-CasaCozinha  { background: rgba(249,115,22,.18); color: #fb923c; border: 1px solid rgba(249,115,22,.3); }
+.badge-Fitness      { background: rgba(34,197,94,.18);  color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
+.badge-BebeCrianca  { background: rgba(168,85,247,.18); color: #c084fc; border: 1px solid rgba(168,85,247,.3); }
+.card-body { padding: 11px; flex: 1; display: flex; flex-direction: column; gap: 7px; }
+.card-name {
+  font-size: .77rem; font-weight: 600; line-height: 1.3;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.card-price { font-size: 1.05rem; font-weight: 800; color: var(--gold); letter-spacing: -.3px; }
+.card-price small { font-size: .7rem; font-weight: 500; color: var(--text-muted); margin-right: 1px; }
+.card-btn {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 9px 12px; border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: #0a0a0a; font-size: .73rem; font-weight: 700;
+  margin-top: auto; transition: opacity var(--transition), transform var(--transition);
+}
+.card-btn:hover { opacity: .88; transform: scale(1.02); }
+.card-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
 
-  .link:hover {
-    background: rgba(212, 175, 55, 0.08);
-    border-color: var(--accent);
-    transform: translateY(-1px);
-  }
+/* ── No results ──────────────────────────────────────────────── */
+.no-results { display: none; grid-column: 1/-1; text-align: center; padding: 48px 20px; color: var(--text-muted); }
+.no-results.visible { display: block; }
 
-  .link svg {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-  }
+/* ── How it works ────────────────────────────────────────────── */
+.how { margin: 40px 20px 0; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+@media (max-width: 400px) { .how-grid { grid-template-columns: 1fr; } }
+.how-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 14px; text-align: center; }
+.how-icon { font-size: 1.6rem; margin-bottom: 8px; }
+.how-title { font-size: .82rem; font-weight: 700; margin-bottom: 5px; }
+.how-desc { font-size: .72rem; color: var(--text-muted); line-height: 1.4; }
 
-  .link .arrow {
-    margin-left: auto;
-    opacity: 0.5;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
+/* ── CTA section ─────────────────────────────────────────────── */
+.cta-section {
+  margin: 40px 20px 0;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(131,58,180,.15), rgba(253,29,29,.1), rgba(252,176,69,.1));
+  border: 1px solid rgba(253,29,29,.2);
+  padding: 36px 24px; text-align: center;
+}
+.cta-section h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
+.cta-section p { color: var(--text-muted); font-size: .88rem; max-width: 360px; margin: 0 auto 22px; }
+.cta-ig-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: 30px;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff; font-weight: 700; font-size: .92rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.cta-ig-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(253,29,29,.3); }
 
-  .link:hover .arrow {
-    opacity: 1;
-    transform: translateX(4px);
-  }
+/* ── Footer ──────────────────────────────────────────────────── */
+.footer { margin-top: 48px; border-top: 1px solid var(--border); padding: 28px 20px 44px; text-align: center; }
+.footer-logo { font-size: 1rem; font-weight: 800; margin-bottom: 14px; }
+.footer-logo span { color: var(--gold); }
+.footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 18px; flex-wrap: wrap; }
+.footer-links a { font-size: .78rem; color: var(--text-muted); transition: color var(--transition); }
+.footer-links a:hover { color: var(--gold); }
+.footer-disclosure { font-size: .69rem; color: var(--text-dim); max-width: 620px; margin: 0 auto; line-height: 1.55; }
+.footer-disclosure strong { color: var(--text-muted); }
+.footer-eg { margin-top: 16px; font-size: .69rem; color: var(--text-dim); }
+.footer-eg a { color: var(--gold); }
 
-  .features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 48px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-  }
-
-  .feature {
-    text-align: center;
-  }
-
-  .feature .icon {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-
-  .feature .label {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.3;
-  }
-
-  footer {
-    font-size: 12px;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-    opacity: 0.6;
-  }
-
-  footer a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px dotted currentColor;
-  }
-
-  @media (max-width: 480px) {
-    main { padding: 24px 0; }
-    .features { gap: 8px; }
-    .feature .label { font-size: 11px; }
-  }
+/* ── Scroll top ──────────────────────────────────────────────── */
+.scroll-top {
+  position: fixed; bottom: 20px; right: 16px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--gold); color: #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.5);
+  opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 99;
+}
+.scroll-top.visible { opacity: 1; pointer-events: auto; }
+.scroll-top svg { width: 18px; height: 18px; }
 </style>
 </head>
 <body>
 
-<main>
-  <span class="logo">✨ EG Select</span>
+<!-- Header -->
+<header class="header">
+  <div class="logo">EG<span>Select</span><div class="logo-dot"></div></div>
+  <a href="https://www.instagram.com/egselect" target="_blank" rel="noopener" class="header-ig">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    @egselect
+  </a>
+</header>
 
-  <h1>Curadoria que faz<br/>você economizar tempo.</h1>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">✦ Curadoria diária · Amazon Brasil</div>
+  <h1>Produtos que<br><em>valem cada centavo</em></h1>
+  <p>Garimpamos os melhores achados na Amazon — eletrônicos, beleza, casa, fitness e muito mais. Novos produtos todo dia.</p>
+  <a href="https://www.instagram.com/egselect" target="_blank" rel="noopener" class="hero-cta">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    Seguir @egselect
+  </a>
+</section>
 
-  <p class="tagline">
-    Produtos selecionados a dedo. Beleza, lifestyle e achados premium — direto no seu feed.
+<!-- Stats -->
+<div class="stats">
+  <div class="stat"><span class="stat-n">30+</span><span class="stat-l">Produtos</span></div>
+  <div class="stat"><span class="stat-n">5</span><span class="stat-l">Categorias</span></div>
+  <div class="stat"><span class="stat-n">R$32</span><span class="stat-l">A partir de</span></div>
+</div>
+
+<!-- Products -->
+<section id="produtos">
+  <div class="section-head">
+    <h2>Achados de <span>hoje</span></h2>
+    <p>Clique em qualquer produto para comprar na Amazon</p>
+  </div>
+  <div class="filter-wrap">
+    <div class="filter">
+      <button class="filter-btn active" data-cat="all">✦ Todos</button>
+      <button class="filter-btn" data-cat="Eletronicos">⚡ Eletrônicos</button>
+      <button class="filter-btn" data-cat="Beleza">💄 Beleza</button>
+      <button class="filter-btn" data-cat="CasaCozinha">🏠 Casa &amp; Cozinha</button>
+      <button class="filter-btn" data-cat="Fitness">💪 Fitness</button>
+      <button class="filter-btn" data-cat="BebeCrianca">👶 Bebê</button>
+    </div>
+  </div>
+  <div class="products" id="product-grid">
+    <div class="no-results" id="no-results">Nenhum produto nesta categoria ainda 🙂</div>
+  </div>
+</section>
+
+<!-- How it works -->
+<div class="how">
+  <div class="section-head">
+    <h2>Como <span>funciona</span></h2>
+    <p>Curadoria sem complicação</p>
+  </div>
+  <div class="how-grid">
+    <div class="how-card"><div class="how-icon">🔍</div><div class="how-title">Garimpo diário</div><div class="how-desc">Analisamos centenas de produtos e filtramos os que realmente valem cada centavo</div></div>
+    <div class="how-card"><div class="how-icon">📱</div><div class="how-title">Postamos no feed</div><div class="how-desc">Reel + stories + carrossel todo dia no @egselect com detalhes de cada produto</div></div>
+    <div class="how-card"><div class="how-icon">🛒</div><div class="how-title">Você compra</div><div class="how-desc">Clique no link, compre na Amazon com a segurança de sempre. Simples assim</div></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h3>Novos produtos todo dia 🔥</h3>
+  <p>Siga o @egselect e não perca nenhum achado. Curadoria diária no seu feed.</p>
+  <a href="https://www.instagram.com/egselect" target="_blank" rel="noopener" class="cta-ig-btn">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    Seguir @egselect no Instagram
+  </a>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">EG<span>Select</span></div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/egselect" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/egselect" target="_blank">Facebook</a>
+    <a href="https://www.amazon.com.br/?tag=egselect-20" target="_blank">Amazon</a>
+    <a href="https://www.effectivegain.com" target="_blank">Effective Gain</a>
+  </div>
+  <p class="footer-disclosure">
+    <strong>Disclosure de Afiliado:</strong> O EG Select participa do Programa de Associados da Amazon Brasil. Os links neste site são links de afiliado — ao comprar através deles, você não paga nada a mais e ajuda o canal a continuar crescendo. Preços e disponibilidade estão sujeitos a alteração sem aviso prévio. As informações sobre produtos são de responsabilidade da Amazon.
   </p>
+  <p class="footer-eg">Uma marca <a href="https://www.effectivegain.com" target="_blank">Effective Gain</a> &nbsp;·&nbsp; &copy; 2026</p>
+</footer>
 
-  <div class="links">
-    <a class="link" href="https://instagram.com/egselect" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-      </svg>
-      <span>Instagram · @egselect</span>
-      <span class="arrow">→</span>
-    </a>
+<!-- Scroll top -->
+<button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 
-    <a class="link" href="https://www.facebook.com/profile.php?id=61589359841843" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-      </svg>
-      <span>Facebook · EG Select</span>
-      <span class="arrow">→</span>
-    </a>
-  </div>
+<script>
+const PRODUCTS = [
+  {id:'001',name:'Amazon Echo Dot — Smart Speaker com Alexa',price:'279',cat:'Eletronicos',img:'https://m.media-amazon.com/images/I/61aCuWauwBL._AC_SL500_.jpg',link:'https://www.amazon.com.br/dp/B09B8XVSDP?tag=egselect-20'},
+  {id:'002',name:'Kindle 16GB — Tela antirreflexo, leve e sem cansar os olhos',price:'649',cat:'Eletronicos',img:'https://m.media-amazon.com/images/I/81Z2YCqqy-L._AC_SL500_.jpg',link:'https://www.amazon.com.br/dp/B0CP31L73X?tag=egselect-20'},
+  {id:'003',name:'JBL Tune 530BT — Fone Bluetooth Sem Fio On-Ear',price:'219',cat:'Eletronicos',img:'https://m.media-amazon.com/images/I/51DjNtcgerL._AC_SL500_.jpg',link:'https://www.amazon.com.br/dp/B0GM1LSHQF?tag=egselect-20'},
+  {id:'004',name:'Cafeteira Nespresso Essenza Mini — Café de verdade em casa',price:'464',cat:'CasaCozinha',img:'https://m.media-amazon.com/images/I/51QP72LhToL._AC_SL500_.jpg',link:'https://www.amazon.com.br/dp/B099ZJQXMF?tag=egselect-20'},
+  {id:'005',name:'La Roche-Posay Anthelios FPS 60 Oil-Free 40g',price:'74',cat:'Beleza',img:'https://m.media-amazon.com/images/I/61o-e5TOO9L._AC_SL500_.jpg',link:'https://www.amazon.com.br/dp/B0917Q5FVH?tag=egselect-20'},
+  {id:'006',name:'Fire TV Stick HD — Streaming em HD com Alexa',price:'263',cat:'Eletronicos',img:'https://m.media-amazon.com/images/I/61K7fAOac9L._AC_SL500_.jpg',link:'https://www.amazon.com.br/dp/B0CQMT33WX?tag=egselect-20'},
+  {id:'007',name:'Air Fryer Mondial Digital 5L 2000W',price:'352',cat:'CasaCozinha',img:'https://m.media-amazon.com/images/I/716V02lqAmL._AC_SL500_.jpg',link:'https://www.amazon.com.br/dp/B0DJPHRWRM?tag=egselect-20'},
+  {id:'008',name:'soundcore P30i — Fone Bluetooth ANC 50dB',price:'179',cat:'Eletronicos',img:'https://m.media-amazon.com/images/P/B0CRTYZG5C._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0CRTYZG5C?tag=egselect-20'},
+  {id:'009',name:'JBL Wave Buds 2 — In-Ear Bluetooth TWS com ANC',price:'249',cat:'Eletronicos',img:'https://m.media-amazon.com/images/P/B0DHL63KWK._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0DHL63KWK?tag=egselect-20'},
+  {id:'010',name:'soundcore Select 4 Go — Caixa Bluetooth 12W IPX7',price:'179',cat:'Eletronicos',img:'https://m.media-amazon.com/images/P/B0DB1753RZ._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0DB1753RZ?tag=egselect-20'},
+  {id:'011',name:'Amazfit Bip 5 — Smartwatch GPS 1,91" 10 dias de bateria',price:'499',cat:'Eletronicos',img:'https://m.media-amazon.com/images/P/B0D2DBG6W4._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0D2DBG6W4?tag=egselect-20'},
+  {id:'012',name:'Redmi Watch 4 — AMOLED 1,97" GPS SpO2',price:'349',cat:'Eletronicos',img:'https://m.media-amazon.com/images/P/B0CQM9TRRS._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0CQM9TRRS?tag=egselect-20'},
+  {id:'013',name:'Barbeador Philips Series 1000 — Seco e Molhado',price:'236',cat:'Eletronicos',img:'https://m.media-amazon.com/images/P/B0CQCL4SK5._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0CQCL4SK5?tag=egselect-20'},
+  {id:'014',name:'NIVEA SUN Protetor FPS 70 Toque Seco 200ml',price:'38',cat:'Beleza',img:'https://m.media-amazon.com/images/P/B0BD6755LC._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0BD6755LC?tag=egselect-20'},
+  {id:'015',name:'Garnier Vitamina C — Creme Hidratante Clareador Noturno 40g',price:'39',cat:'Beleza',img:'https://m.media-amazon.com/images/P/B0DP82WCWS._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0DP82WCWS?tag=egselect-20'},
+  {id:'016',name:'Cetaphil Loção Hidratante Pele Sensível 473ml',price:'119',cat:'Beleza',img:'https://m.media-amazon.com/images/P/B079VPMXHF._SL500_.jpg',link:'https://www.amazon.com.br/dp/B079VPMXHF?tag=egselect-20'},
+  {id:'017',name:'Mustela Gel Lavante 200ml — Cabelo e Corpo',price:'79',cat:'Beleza',img:'https://m.media-amazon.com/images/P/B071FX83XS._SL500_.jpg',link:'https://www.amazon.com.br/dp/B071FX83XS?tag=egselect-20'},
+  {id:'018',name:'Garnier Sérum Vitamina C 30ml — Iluminador Anti-Manchas',price:'45',cat:'Beleza',img:'https://m.media-amazon.com/images/P/B096YBTCTR._SL500_.jpg',link:'https://www.amazon.com.br/dp/B096YBTCTR?tag=egselect-20'},
+  {id:'019',name:'Tramontina Mônaco — Conjunto de Panelas 5 Peças',price:'329',cat:'CasaCozinha',img:'https://m.media-amazon.com/images/P/B076JJMP9S._SL500_.jpg',link:'https://www.amazon.com.br/dp/B076JJMP9S?tag=egselect-20'},
+  {id:'020',name:'Cafeteira Mondial Espresso Latte 20 Bar',price:'299',cat:'CasaCozinha',img:'https://m.media-amazon.com/images/P/B0D3FPHMK9._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0D3FPHMK9?tag=egselect-20'},
+  {id:'021',name:'Liquidificador Philips Walita Daily 2L 600W 15 Vel.',price:'289',cat:'CasaCozinha',img:'https://m.media-amazon.com/images/P/B09YMT1YKV._SL500_.jpg',link:'https://www.amazon.com.br/dp/B09YMT1YKV?tag=egselect-20'},
+  {id:'022',name:'Cafeteira Mondial Coffee Cream — Compatível Nespresso',price:'179',cat:'CasaCozinha',img:'https://m.media-amazon.com/images/P/B076619SDK._SL500_.jpg',link:'https://www.amazon.com.br/dp/B076619SDK?tag=egselect-20'},
+  {id:'023',name:'Processador Philips Walita PowerChop 700W',price:'399',cat:'CasaCozinha',img:'https://m.media-amazon.com/images/P/B0CX2K5T2Z._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0CX2K5T2Z?tag=egselect-20'},
+  {id:'024',name:'Tapete Yoga ARIMO Antiderrapante 6mm 183x61cm',price:'149',cat:'Fitness',img:'https://m.media-amazon.com/images/P/B08WJX6JC4._SL500_.jpg',link:'https://www.amazon.com.br/dp/B08WJX6JC4?tag=egselect-20'},
+  {id:'025',name:'Par Halteres SONGMICS 8kg Emborrachados',price:'189',cat:'Fitness',img:'https://m.media-amazon.com/images/P/B0CCCH76M7._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0CCCH76M7?tag=egselect-20'},
+  {id:'026',name:'Corda de Pular Acte Sports Speed com Rolamento',price:'49',cat:'Fitness',img:'https://m.media-amazon.com/images/P/B0966418JX._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0966418JX?tag=egselect-20'},
+  {id:'027',name:'Kit Halteres 20kg Total com Barra e Anilhas',price:'249',cat:'Fitness',img:'https://m.media-amazon.com/images/P/B098PN2GW4._SL500_.jpg',link:'https://www.amazon.com.br/dp/B098PN2GW4?tag=egselect-20'},
+  {id:'028',name:'Huggies Supreme Care Fralda XG 140 Unidades',price:'189',cat:'BebeCrianca',img:'https://m.media-amazon.com/images/P/B0BFXJHXDP._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0BFXJHXDP?tag=egselect-20'},
+  {id:'029',name:'Baby Dove Shampoo Hidratação Enriquecida 400ml',price:'32',cat:'BebeCrianca',img:'https://m.media-amazon.com/images/P/B078HS3SKS._SL500_.jpg',link:'https://www.amazon.com.br/dp/B078HS3SKS?tag=egselect-20'},
+  {id:'030',name:'Mustela Kit Essenciais Recém-Nascido — Gel + Loção + Creme',price:'189',cat:'BebeCrianca',img:'https://m.media-amazon.com/images/P/B0D2PPWBNW._SL500_.jpg',link:'https://www.amazon.com.br/dp/B0D2PPWBNW?tag=egselect-20'},
+];
 
-  <div class="features">
-    <div class="feature">
-      <div class="icon">🎯</div>
-      <div class="label">Curadoria<br/>diária</div>
-    </div>
-    <div class="feature">
-      <div class="icon">💎</div>
-      <div class="label">Produtos<br/>premium</div>
-    </div>
-    <div class="feature">
-      <div class="icon">✨</div>
-      <div class="label">Achados<br/>exclusivos</div>
-    </div>
-  </div>
+const LABELS = {Eletronicos:'⚡ Eletrônicos',Beleza:'💄 Beleza',CasaCozinha:'🏠 Casa',Fitness:'💪 Fitness',BebeCrianca:'👶 Bebê'};
+const FALLBACK = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231a1a1a' width='100' height='100'/%3E%3Ctext y='.9em' font-size='40' x='28' dy='38'%3E%F0%9F%93%A6%3C/text%3E%3C/svg%3E";
 
-  <footer>
-    Uma marca <a href="https://effectivegain.com" target="_blank" rel="noopener">Effective Gain</a>
-  </footer>
-</main>
+function renderCards(cat) {
+  const grid = document.getElementById('product-grid');
+  const noRes = document.getElementById('no-results');
+  grid.querySelectorAll('.card').forEach(c => c.remove());
+  const list = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+  noRes.classList.toggle('visible', list.length === 0);
+  list.forEach(p => {
+    const a = document.createElement('a');
+    a.className = 'card';
+    a.href = p.link;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.innerHTML =
+      '<div class="card-img">' +
+        '<img src="' + p.img + '" alt="' + p.name.replace(/"/g,'&quot;') + '" loading="lazy" onerror="this.src=\'' + FALLBACK + '\'">' +
+        '<span class="card-badge badge-' + p.cat + '">' + (LABELS[p.cat]||p.cat) + '</span>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<span class="card-name">' + p.name + '</span>' +
+        '<span class="card-price"><small>R$</small>' + Number(p.price).toLocaleString('pt-BR') + '</span>' +
+        '<span class="card-btn">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' +
+          'Ver na Amazon' +
+        '</span>' +
+      '</div>';
+    grid.insertBefore(a, noRes);
+  });
+}
 
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCards(btn.dataset.cat);
+  });
+});
+
+window.addEventListener('scroll', () => {
+  document.getElementById('scroll-top').classList.toggle('visible', scrollY > 400);
+}, {passive:true});
+
+renderCards('all');
+</script>
 </body>
 </html>
