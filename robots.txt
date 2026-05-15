@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /products.json
+
+Sitemap: https://egselect.effectivegain.com/sitemap.xml
